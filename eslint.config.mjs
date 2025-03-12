@@ -10,23 +10,23 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+    baseDirectory: __dirname,
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
-  {
-    plugins: {
-      "@typescript-eslint": tsPlugin,
-      prettier: prettierPlugin,
-      "react-hooks": eslintReactHooks,
-      "@next/next": eslintNext,
+    ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
+    {
+        plugins: {
+            "@typescript-eslint": tsPlugin,
+            prettier: prettierPlugin,
+            "react-hooks": eslintReactHooks,
+            "@next/next": eslintNext,
+        },
+        rules: {
+            "prettier/prettier": "error",
+            "@typescript-eslint/no-unused-vars": "error",
+        },
     },
-    rules: {
-      "prettier/prettier": "error",
-      "@typescript-eslint/no-unused-vars": "error",
-    },
-  },
 ];
 
 export default eslintConfig;
